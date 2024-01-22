@@ -1,0 +1,79 @@
+<div *ngIf="isLoading">
+  <app-page-loading></app-page-loading>
+</div>
+<div class="container-fluid my-5">
+  <div class="row"  >
+    <div class="col-md-6">
+      <div *ngIf="isLoading">
+        <app-page-loading></app-page-loading>
+      </div>
+      <div class="image position-relative" >
+        <img  src="{{getImagePath()}} " class="w-100 h-50 text-white" title="{{allDetails.original_title}}">
+        <div (click)="addToFavorite()" class="favorite position-absolute"><!--favorite icon-->
+          <a #favorite >
+            <i class="fa-solid fa-heart fs-5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 details">
+      <h2>{{allDetails.original_title}}</h2>
+      <p>{{allDetails.overview}}</p>
+      <ul class=" list-unstyled d-flex" >
+        <h5>genres :</h5>
+        <li *ngFor="let item of allDetails.genres" class="bg-danger mx-2 p-1">
+          {{item.name}}
+        </li>
+      </ul>
+      <h5> average : {{allDetails.vote_average}}</h5>
+      <h5> count : {{allDetails.vote_count}}</h5>
+      <h5> view date : {{allDetails.release_date}}</h5>
+      <h5 *ngIf="allDetails.adult" class="bg-danger"> adult : +18</h5>
+      <h5 *ngIf="!allDetails.adult" > adult : No </h5>
+      <ul class=" list-unstyled d-flex" >
+        <li *ngIf="allDetails.spoken_languages>0" class="bg-danger mx-2 p-1">
+          <ng-container *ngFor="let item of allDetails.spoken_languages" >
+            <h5>language : </h5>
+            {{item.name}}
+          </ng-container>
+        </li>
+      </ul>
+      <button *ngIf="images" #buttonSeeImage class="btn btn-warning me-2" (click)="getImagesFromMovie()">See Images</button>
+      <button *ngIf="!images" #buttonHideImage class="btn btn-warning me-2" (click)="hideImages()">Hide Images</button>
+      <button #buttonSeeCast style="display: inline-block;" class="btn btn-warning me-2" (click)="getCastMovie()">See Cast</button>
+      <button #buttonHideCast  style="display: none;" class="btn btn-warning me-2" (click)="hideCast()">Hide Cast</button>
+      <a *ngIf="keyPlay" class="btn btn-warning me-2" (click)="getVideoFromMovie() "  target="_blank" [href]="anyVideoPath+keyPlay" >See Trailer</a>
+    </div>  <!--end row-->
+
+
+  <div class="container-fluid my-2" >
+      <div class="row g-2 "><!-- images-->
+        <div class="col-md-3" *ngFor="let image of movieImages">
+          <img [src]="anyImagePath + image.file_path" class="w-100" alt="">
+        </div>
+      </div>
+  </div>
+  <div class="container my-2" >
+    <div class="row gy-3 gx-3 "> <!-- cast-->
+      <ng-container *ngFor="let item of allCast">
+        <!-- <div class="row"> -->
+          <div class="col-md-3 border rounded border-danger">
+            <div class="row">
+              <div class="col-md-4" >
+                <img *ngIf="item.profile_path" [src]="anyImagePath + item.profile_path" class="w-100" alt="">
+                <img *ngIf="!item.profile_path" [src]="defaultImage" class="w-100" alt="">
+              </div>
+              <div class="col-md-8">
+                <h6 *ngIf="item.name">Name : {{item.name}}</h6>
+                <h6 *ngIf="item.character">Character : {{item.character}}</h6>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+
+      </ng-container>
+    </div>
+  </div>
+  </div>
+</div>
+

@@ -1,0 +1,87 @@
+.search{
+  margin:70px auto 0;
+  /* background-color: aqua; */
+  overflow: hidden;
+
+}
+
+.searchInput{
+
+  border:  none;
+  background-color: #eee;
+  padding: 10px;
+
+}
+.searchInput::placeholder{
+  color: red;
+}
+.search button{
+  /* padding: 10px; */
+  background-color: red;
+  color: white;
+  /* border: none; */
+}
+.body{
+  /* height: 250px; */
+  /* border: 1px solid red; */
+  /* border: 1px solid yellow; */
+  overflow: hidden;
+  cursor: pointer;
+
+
+}
+
+
+/* favorite image */
+.image{
+  height: 200px;
+  /* width: 200px; */
+}
+
+.image img{
+  height:100%;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+}
+.image:hover img{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+/* end favorite image*/
+
+.percent{
+  background-color: red;
+  padding: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.percent span{
+  width: 60px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.percentige{
+  font-size: 10px;
+  /* margin: auto; */
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.unFavorite ,
+.remove{
+  cursor: pointer;
+}
+

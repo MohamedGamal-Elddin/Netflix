@@ -1,0 +1,35 @@
+.footer{
+  margin-top: auto;
+}
+.footer img{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.footer li{
+  cursor: pointer;
+
+}
+
+.social li{
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.fa-whatsapp{
+  background-color:greenyellow;
+  padding: 5px;
+  color: white;
+}

@@ -1,0 +1,31 @@
+<div class="pt-5 mt-5 container-fluid bg-white">
+  <h2>Popular People</h2>
+  <div class="row gy-3 gx-3">
+    <div class="col-md-3 border shadow"  *ngFor="let item of allPeople" >
+      <div class="image">
+        <a [routerLink]="'/peopleDetails/' + item.id">
+          <img [src]="path + item.profile_path" alt="" class="w-100" >
+        </a>
+      </div>
+      <div class="info ">
+        <h4>{{item.original_name}}</h4>
+        <span class="d-flex" *ngFor="let i of item.known_for">
+          <span class="text-muted d-flex">{{i.title}}{{i.name}},</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav aria-label="..." class="d-flex justify-content-center py-3">
+    <ul class="pagination m-auto text-center" >
+      <li class="page-item disabled">
+        <a class="page-link">Previous</a>
+      </li>
+      <li class="page-item active" aria-current="page" *ngFor="let page of pagesNumber">
+        <a class="page-link" (click)="getPopularPeople(page)" >{{page}}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

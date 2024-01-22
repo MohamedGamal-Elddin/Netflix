@@ -1,0 +1,22 @@
+<div *ngIf="isLoading" class="loading text-white">
+  <i class="fa fa-spinner fa-spin"></i>
+</div>
+
+<div *ngIf="!isLoading" class="py-5 my-5 bg-white container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="image">
+        <img [src]="path + allPeopleDetails?.profile_path" alt="" class="w-75" >
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h2>{{allPeopleDetails.name}}</h2>
+      <p *ngIf="allPeopleDetails.biography">Biography:{{allPeopleDetails.biography}}</p>
+      <h3>types Of Movies :{{allPeopleDetails.known_for_department}}</h3>
+      <h5>Languages of Name:</h5>
+      <span *ngFor="let i of allPeopleDetails.also_known_as">
+        <span class="p-2 mb-4 me-1 btn-danger"> {{i}}</span>
+      </span>
+    </div>
+  </div>
+</div>

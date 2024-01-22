@@ -1,0 +1,36 @@
+.carousel-caption{
+  bottom: 120px;
+  background-color : rgba(0,0,0,.354);
+}
+.moviesPoster{
+  display: flex;
+  overflow-x: scroll;
+  /* overflow: auto; */
+  border: 2px solid white;
+  /* padding: 10px; */
+  background-color: red;
+
+}
+.moviesPoster img{
+  max-height: 200px;
+  width: 100%;
+  object-fit: contain;
+  box-sizing: content-box;
+  margin: 2px;
+  cursor: pointer;
+  transition: transform .5s;
+  -webkit-transition: transform .5s;
+  -moz-transition: transform .5s;
+  -ms-transition: transform .5s;
+  -o-transition: transform .5s;
+}
+.moviesPoster img:hover{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+/* .moviesPoster::-webkit-scrollbar{
+  display: none;
+} */

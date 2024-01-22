@@ -1,0 +1,87 @@
+<div *ngIf="isLoading" class="loading text-white">
+  <i class="fa fa-spinner fa-spin"></i>
+</div>
+
+
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let slide of allImagesTrends">
+      <ng-template class="imagePanner" carouselSlide [id]="slide.id">
+        <img [src]=" path + slide.backdrop_path " [alt]="slide.alt">
+        <div class=" carousel-caption d-none d-md-block">
+          <h3 class="text-info fs-bold">Movie Name : {{slide.original_title}}{{slide.name}}</h3>
+          <p class="text-info  ">{{slide.overview | shortWords : 20 }}</p>
+        </div>
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+
+<div class="trendingMovies my-3">
+
+  <h5 class=" text-center">Trending Movies</h5>
+  <div class="moviesPoster">
+    <div *ngIf="isLoading" class="loading text-white">
+      <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <ng-container *ngFor="let movie of allTrendingMovies">
+      <img  class="image" [src]=" path + movie.poster_path " [alt]="movie.poster_path" routerLink="/movieDetails/{{movie.id}}">
+    </ng-container>
+  </div>
+</div>
+<div class="trendingMoviesActions my-3">
+  <h5 class=" text-center">Trending Movies Actions</h5>
+  <div class="moviesPoster">
+    <div *ngIf="isLoading" class="loading text-white">
+      <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <ng-container *ngFor="let movie of allTrendingMoviesAction">
+      <img  class="image" [src]=" path + movie.poster_path " [alt]="movie.poster_path" routerLink="/movieDetails/{{movie.id}}">
+    </ng-container>
+  </div>
+</div>
+<div class="trendingMoviesComedy my-3">
+  <h5 class=" text-center">Trending Movies Comedy</h5>
+  <div class="moviesPoster">
+    <div *ngIf="isLoading" class="loading text-white">
+      <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <ng-container *ngFor="let movie of allTrendingMoviesComedy">
+      <img  class="image" [src]=" path + movie.poster_path " [alt]="movie.poster_path" routerLink="/movieDetails/{{movie.id}}">
+    </ng-container>
+  </div>
+</div>
+<div class="trendingMoviesAnimation my-3">
+  <h5 class=" text-center">Trending Movies Animation</h5>
+  <div class="moviesPoster">
+    <div *ngIf="isLoading" class="loading text-white">
+      <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <ng-container *ngFor="let movie of allTrendingMoviesAnimation">
+      <img  class="image" [src]=" path + movie.poster_path " [alt]="movie.poster_path" routerLink="/movieDetails/{{movie.id}}">
+    </ng-container>
+  </div>
+</div>
+<div class="trendingMoviesScience my-3">
+  <h5 class=" text-center">Trending Movies Science</h5>
+  <div class="moviesPoster">
+    <div *ngIf="isLoading" class="loading text-white">
+      <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <ng-container *ngFor="let movie of allTrendingMoviesScience">
+      <img  class="image" [src]=" path + movie.poster_path " [alt]="movie.poster_path" routerLink="/movieDetails/{{movie.id}}">
+    </ng-container>
+  </div>
+</div>
+<div class="trendingMoviesThriller my-3">
+  <h5 class=" text-center">Trending Movies Thriller</h5>
+  <div class="moviesPoster">
+    <div *ngIf="isLoading" class="loading text-white">
+      <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <ng-container *ngFor="let movie of allTrendingMoviesThriller">
+      <img  class="image" [src]=" path + movie.poster_path " [alt]="movie.poster_path" routerLink="/movieDetails/{{movie.id}}">
+    </ng-container>
+  </div>
+</div>
+
+<app-footer></app-footer>

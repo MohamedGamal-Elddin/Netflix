@@ -1,0 +1,9 @@
+<div class="image overflow-hidden" *ngIf="movie.poster_path">
+    <img  [src]="anyImagePath + movie.poster_path" class="card-img-top" (click)="getDetails(movie.id)">
+</div>
+<div class="image overflow-hidden  bg-secondary" *ngIf="!movie.poster_path">
+  <img  src="{{defaultImage}}" class="card-img-top " (click)="getDetails(movie.id)">
+</div>
+<div class="card-body ">
+  <h5 class="card-title co" #colorChange>{{movie.original_title}}</h5>
+</div>

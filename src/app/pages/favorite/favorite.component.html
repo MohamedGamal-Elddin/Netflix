@@ -1,0 +1,75 @@
+<div class="favoritePage">
+  <div class=" d-flex justify-content-center">
+    <div class="row search">
+      <div class="col-md-8 mb-1">
+        <input #inputSearch (change)="getFavoriteMoviesFromSearching()" [(ngModel)]="words" type="text" placeholder="...search" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <button class="btn">Search</button>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid favorite text-white">
+    <h2 class="m-0 p-0">my favorite:</h2>
+  </div>
+  <div *ngIf="isLoading" class="loading">
+    <i class="fa fa-spinner fa-spin"></i>
+  </div>
+
+
+  <div class="allMovies py-5 container-fluid" > <!--when open favorite page -->
+    <div class="card bg-transparent " >
+      <div class="row g-2 ">
+        <div class="" *ngFor="let movie of favorites|search:words ; let i = index">
+          <div class="row shadow">
+            <div class="col-md-3"><!--image-->
+              <div class="image overflow-hidden" *ngIf="movie.poster_path">
+                <img  [src]="path + movie.poster_path" >
+              </div>
+              <div class="image overflow-hidden  bg-secondary" *ngIf="!movie.poster_path">
+                <img  src="{{defaultImage}}"  >
+              </div>
+            </div>
+            <div class="col-md-9"> <!--content-->
+              <div>
+                <div class="heading d-flex align-items-center">
+                  <div class="percent mx-2 text-white">
+                    <span>{{(movie.vote_average*100/10 | number : '2.1') }}</span>
+                    <p class="percentige">%</p>
+                  </div>
+                  <div>
+                    <h3 class="mb-0">{{movie.original_title}}</h3>
+                    <h5 class="text-secondary">{{movie.release_date | date}}</h5>
+                  </div>
+                </div>
+                <p class="text-secondary">{{movie.overview}}</p>
+                <div class="features d-flex gx-5">
+                  <span class="me-4 text-center">
+                    <i class="fa-regular fa-star border rounded-circle p-2"></i>
+                    <p>Your Rate</p>
+                  </span>
+                  <span class="me-4 text-center">
+                    <i class="fa-solid fa-list border rounded-circle p-2"></i>
+                    <p>Add list</p>
+                  </span>
+                  <span class="remove me-4 text-center"  (click)="delete(i)">
+                    <i class="fa-solid fa-xmark border rounded-circle p-2"></i>
+                    <p> Remove</p>
+                  </span>
+                  <span class="unFavorite me-4 text-center" (click)="delete(i)">
+                    <i class="fa-regular fa-heart border rounded-circle p-2 bg-danger text-white"></i>
+                    <p> Un favorite</p>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+              <!-- <p>{{x | percent: '2.0-1':'en'}}</p> -->
+              <!-- <h3>{{movie.id}}</h3> -->
+              <!-- <p>{{movie.original_language}}</p> -->
+              <!-- <h3>{{(movie.runtime) | hourMinute}}</h3> -->

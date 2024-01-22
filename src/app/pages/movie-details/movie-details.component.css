@@ -1,0 +1,21 @@
+.favorite{
+  top: 0;
+  right: 0;
+  padding: 7px;
+  /* background-color: antiquewhite; */
+  /* height: 0; */
+  /* width: 50px; */
+  /* background-color: azure; */
+  cursor: pointer;
+}
+
+button{
+  width: 120px;
+  /* background-color: red; */
+}
+
+.details a{
+  width: 120px;
+  /* background-color: red; */
+
+}

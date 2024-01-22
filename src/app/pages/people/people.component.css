@@ -1,0 +1,16 @@
+.pagination .page-item{
+  cursor: pointer;
+}
+.pagination .page-item a{
+  background-color: transparent;
+  color: black;
+  text-decoration: none;
+  border: 1px solid red;
+}
+.pagination .page-item:hover a{
+  color: white;
+  background-color: red;
+}
+
+
+
